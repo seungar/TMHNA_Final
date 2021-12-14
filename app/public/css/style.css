@@ -26,7 +26,7 @@ margin-bottom: 180px;
 }
 .card-img {
 height:auto;
-width:1000px;
+width:auto;
 }
 .card-body {
 display: flex;
@@ -39,6 +39,10 @@ padding-right: 1%;
 
 #nav-link {
 color: white;
+}
+
+#alertnumber{
+	color:red;
 }
 
 form {
@@ -119,11 +123,4 @@ span.psw {
 	.cancelbtn {
 	width: 100%;
 	}
-}
-
-footer {
-	position: fixed;
-	Width: 100%;
-	bottom: 0;
-	height: 5%;
 }
