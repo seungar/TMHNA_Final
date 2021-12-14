@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+        <title>TMHNA Products
+        </title>
+      </head>
+    <body>
+        <nav>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                  <a target='navbar-brand' href='./index.html'>
+                    <img src='img/tmhna.png' alt="" height="100" class="d-inline-block align-text-top"></img></a>
+                  Toyota Materials Handling North America
+                
+                <a href='./dealerportal.html'>Portal</a>
+                <a href='./index.html'>Log Out</a></div>
+              </nav>
+        </nav>
+        <main>
+        <div id="prodApp" class='container'>
+          <div v-for='b in brands' v-on:click='selectBrand(b)'
+            :class="['brand', {selected: selectedBrand && b.id == selectedBrand.id}]" class='col-6'>
+            <button type="button" class="btn btn-primary active" data-bs-toggle="button" 
+            autocomplete="off" aria-pressed="true">{{ b.brand_name }}</button>
+          </div>
+          <!-- <form v-on:submit.prevent="selectBrand(b)">
+            <select v-model="selectBrand.id">
+              <option v-for='b in brands'>{{b.brand_name }}</option>
+            </select>
+            <button class="btn btn-success btn-small my-3" type='submit'>Confirm</button>
+          </form> -->
+          
+
+        <table id="productstable" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Product Type</th>
+                <th>Order</th>
+              </tr>
+              <tbody>
+              <tr v-for="p in products">
+                <td>{{ p.prod_name }}</td>
+                <td>{{ p.brand_name }}</td>
+                <td>{{ p.price }}</td>
+                <td>{{ p.prod_type}}</td>
+                <td>
+                <button type="button" v-on:click="handleOrder(p)" class="btn btn-outline-secondary btn-sm">Order</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        
+          
+          <div class='col-12'>
+            <form>
+              <h3>Order Form</h3>
+              <div class="mb-3">
+                <label for="prod_name" class="form-label">Product Name <span class="req">*</span></label>
+                <input type="text" v-model="productForm.prod_name"
+                class="form-control" id="prod_name" required="required">
+              </div>
+              <div class="mb-3">
+                <label for="brand_name" class="form-label">Brand <span class="req">*</span></label>
+                <input type="text" v-model="productForm.brand_name" class="form-control" id="brand_name"  required="required">
+              </div>
+              <div class="mb-3">
+                <label for="prod_type" class="form-label">Product Type <span class="req">*</span></label>
+                <input type="text" v-model="productForm.prod_type" class="form-control" id="prod_type"  required="required">
+              </div>
+              <div class="mb-3">
+                <label for="prod_type" class="form-label">Product Type <span class="req">*</span></label>
+                <input type="number" class="form-control" id="qty"  required="required">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Order Product</button>
+              
+            </form>
+          </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>  
+<footer>
+    <p>Copyright &copy; TMHNA    <a href='./index.html'>log out</a></p>
+</footer>
+</html>
+
+
