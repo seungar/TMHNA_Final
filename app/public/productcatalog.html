@@ -15,7 +15,7 @@
         <title>TMHNA Products
         </title>
       </head>
-    <body>
+    <body id='bodyspace'>
         <nav>
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
@@ -29,10 +29,15 @@
         </nav>
         <main>
         <div id="prodApp" class='container'>
+
           <div v-for='b in brands' v-on:click='selectBrand(b)'
-            :class="['brand', {selected: selectedBrand && b.id == selectedBrand.id}]" class='col-6'>
+            :class="['brand', {selected: selectedBrand && b.id == selectedBrand.id}]" class='col-4'>
             <button type="button" class="btn btn-primary active" data-bs-toggle="button" 
             autocomplete="off" aria-pressed="true">{{ b.brand_name }}</button>
+          </div>
+          <div v-on:click='fetchProdData' class='col-4'>
+            <button type='button' class="btn btn-primary active" data-bs-toggle="button" 
+            autocomplete="off" aria-pressed="true">All Products</button>
           </div>
           <!-- <form v-on:submit.prevent="selectBrand(b)">
             <select v-model="selectBrand.id">
@@ -97,9 +102,9 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/index.js"></script>
   </body>  
-<footer>
-    <p>Copyright &copy; TMHNA    <a href='./index.html'>log out</a></p>
-</footer>
+  <footer class='footer'>
+      <p>Copyright &copy; TMHNA    <a href='./index.html'>log out</a></p>
+  </footer>
 </html>
 
 
